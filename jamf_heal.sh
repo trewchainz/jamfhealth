@@ -9,11 +9,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-echo "+++++++++++++ collecting jamf manage status: `date` +++++++++++++\n"| sudo tee -a /library/logs/jamfhealth_`hostname`.log 
-sudo jamf manage | sudo tee -a /library/logs/jamfhealth_`hostname`.log 
+echo "+++++++++++++ collecting jamf manage status: `date` +++++++++++++\n" && sudo jamf manage | sudo tee -a /library/logs/jamfhealth_`hostname`.log 
+ 
+echo "+++++++++++++ collecting jamf mdm status: `date` +++++++++++++\n" && sudo jamf mdm | sudo tee -a /library/logs/jamfhealth_`hostname`.log 
 
-echo "+++++++++++++ collecting jamf mdm status: `date` +++++++++++++\n"| sudo tee -a /library/logs/jamfhealth_`hostname`.log 
-sudo jamf mdm | sudo tee -a /library/logs/jamfhealth_`hostname`.log 
-
-echo "+++++++++++++ collecting jamf recon status: `date` +++++++++++++\n"| sudo tee -a /library/logs/jamfhealth_`hostname`.log 
-sudo jamf recon | sudo tee -a /library/logs/jamfhealth_`hostname`.log 
+echo "+++++++++++++ collecting jamf recon status: `date` +++++++++++++\n" && sudo jamf recon | sudo tee -a /library/logs/jamfhealth_`hostname`.log 
