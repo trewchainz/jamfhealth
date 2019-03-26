@@ -2,8 +2,12 @@
 #
 # Author: N8
 #
-# Description: JAMF client health check
+# Description: JAMF Mac client health check
 
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
 
 echo "+++++++++++++ collecting jamf manage status: `date` +++++++++++++\n"| sudo tee -a /library/logs/jamfhealth_`hostname`.log 
 sudo jamf manage | sudo tee -a /library/logs/jamfhealth_`hostname`.log 
