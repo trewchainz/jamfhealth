@@ -27,7 +27,8 @@ select yn in "Yes" "No"; do
 	case $yn in
 		Yes ) sudo jamf removeframework | sudo tee -a /library/logs/jamfhealth_\$hostname.log;
 			  read -p "Pause for removing JSS record [Press Enter]..."
-			  sudo installer -verbose -pkg ~/Downloads/QuickAdd_10_9.pkg -target / | sudo tee -a /library/logs/jamfhealth_\$hostname.log;;
+			  sudo installer -verbose -pkg ~/Downloads/QuickAdd_10_9.pkg -target / | sudo tee -a /library/logs/jamfhealth_\$hostname.log;
+			  exit ;;
 
 		No ) exit ;;
 	esac
