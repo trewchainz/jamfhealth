@@ -22,7 +22,7 @@ $manage
 $mdm
 $recon
 #terminal output formatting fix (tee has bad line spacing?)
-cat library/logs/jamfhealth_\$hostname.log
+cat /library/logs/jamfhealth_\$hostname.log
 #re-install/re-enroll
 echo "Would you like to re-install & re-enroll the client? (Have QuickAdd pkg in Downloads folder. Doesn't delete JSS record)..."
 select yn in "Yes" "No"; do
