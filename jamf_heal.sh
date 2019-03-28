@@ -7,9 +7,9 @@
 #ze variables
 date=`date`
 hostname=`hostname`
-manage=`echo "+++++++++++++ collecting jamf manage status: \$date +++++++++++++\n" | sudo tee -a /library/logs/jamfhealth_\$hostname.log && sudo jamf manage | sudo tee -a /library/logs/jamfhealth_\$hostname.log `
-mdm=`echo "+++++++++++++ collecting jamf mdm status: \$date +++++++++++++\n" | sudo tee -a /library/logs/jamfhealth_\$hostname.log && sudo jamf mdm | sudo tee -a /library/logs/jamfhealth_\$hostname.log`
-recon=`echo "+++++++++++++ collecting jamf recon status: \$date +++++++++++++\n" | sudo tee -a /library/logs/jamfhealth_\$hostname.log && sudo jamf recon | sudo tee -a /library/logs/jamfhealth_\$hostname.log`
+manage=`echo "+++++++++++++ collecting jamf manage status: \$date +++++++++++++\n" >> /library/logs/jamfhealth_\$hostname.log && sudo jamf manage >> /library/logs/jamfhealth_\$hostname.log `
+mdm=`echo "+++++++++++++ collecting jamf mdm status: \$date +++++++++++++\n" >> /library/logs/jamfhealth_\$hostname.log && sudo jamf mdm >> /library/logs/jamfhealth_\$hostname.log`
+recon=`echo "+++++++++++++ collecting jamf recon status: \$date +++++++++++++\n"  >> library/logs/jamfhealth_\$hostname.log && sudo jamf recon >> /library/logs/jamfhealth_\$hostname.log`
 
 #check if root
 if [[ $EUID -ne 0 ]]; then
@@ -18,9 +18,11 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 #collect ze data
-echo $manage
-echo $mdm
-echo $recon
+$manage
+$mdm
+$recon
+#terminal output formatting fix (tee has bad line spacing?)
+cat library/logs/jamfhealth_\$hostname.log
 #re-install/re-enroll
 echo "Would you like to re-install & re-enroll the client? (Have QuickAdd pkg in Downloads folder. Doesn't delete JSS record)..."
 select yn in "Yes" "No"; do
