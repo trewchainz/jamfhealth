@@ -9,7 +9,7 @@ date=`date`
 hostname=`hostname`
 manage=`echo "+++++++++++++ collecting jamf manage status: \$date +++++++++++++\n" >> /library/logs/jamfhealth_\$hostname.log && sudo jamf manage >> /library/logs/jamfhealth_\$hostname.log `
 mdm=`echo "+++++++++++++ collecting jamf mdm status: \$date +++++++++++++\n" >> /library/logs/jamfhealth_\$hostname.log && sudo jamf mdm >> /library/logs/jamfhealth_\$hostname.log`
-recon=`echo "+++++++++++++ collecting jamf recon status: \$date +++++++++++++\n"  >> library/logs/jamfhealth_\$hostname.log && sudo jamf recon >> /library/logs/jamfhealth_\$hostname.log`
+recon=`echo "+++++++++++++ collecting jamf recon status: \$date +++++++++++++\n"  >> /library/logs/jamfhealth_\$hostname.log && sudo jamf recon >> /library/logs/jamfhealth_\$hostname.log`
 
 #check if root
 if [[ $EUID -ne 0 ]]; then
