@@ -21,6 +21,7 @@ fi
 echo $manage
 echo $mdm
 echo $recon
+#re-install/re-enroll
 echo "Would you like to re-install & re-enroll the client? (Have QuickAdd pkg in Downloads folder. Doesn't delete JSS record)..."
 select yn in "Yes" "No"; do
 	case $yn in
