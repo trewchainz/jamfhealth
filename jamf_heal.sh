@@ -3,6 +3,8 @@
 # Author: N8
 #
 # Description: JAMF Mac client health check
+# 
+# Note: Put QuickAdd package in Downloads folder
 
 #ze variables
 date=`date`
