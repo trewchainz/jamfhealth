@@ -4,7 +4,7 @@
 #
 # Description: JAMF Mac client health check
 # 
-# Note: Put QuickAdd package in Downloads folder
+# Note: Put QuickAdd package in Downloads folder. Logs go to: /library/logs/jamfhealth_HOSTNAME.log
 
 #ze variables
 date=`date`
