@@ -9,7 +9,7 @@
 #ze variables
 date=`date`
 hostname=`hostname`
-manage= echo "+++++++++++++ collecting jamf manage status: ${date} +++++++++++++\n" | tee -a /library/logs/jamfhealth_${hostname}.log ; jamf manage | tee -a/library/logs/jamfhealth_${hostname}.log
+manage= echo "+++++++++++++ collecting jamf manage status: ${date} +++++++++++++\n" | tee -a /library/logs/jamfhealth_${hostname}.log ; jamf manage | tee -a /library/logs/jamfhealth_${hostname}.log
 mdm= echo "+++++++++++++ collecting jamf mdm status: ${date} +++++++++++++\n" | tee -a /library/logs/jamfhealth_${hostname}.log ; jamf mdm | tee -a /library/logs/jamfhealth_${hostname}.log
 recon= echo "+++++++++++++ collecting jamf recon status: ${date} +++++++++++++\n" | tee -a /library/logs/jamfhealth_${hostname}.log; jamf recon | tee -a /library/logs/jamfhealth_${hostname}.log
 
